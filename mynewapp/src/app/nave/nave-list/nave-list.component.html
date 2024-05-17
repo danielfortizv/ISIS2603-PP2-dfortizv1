@@ -1,0 +1,30 @@
+<div class="contenido">
+  <div class="contenedor">
+  <h5>Naves</h5>
+  <p>Naves de la rebelion: {{rebelion}}</p>
+  <p>Naves del imperio: {{imperio}}</p>
+  <p>Naves neutrales : {{neutral}}</p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Fabricante</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let n of naves">
+        <td (click)="onSelected(n)" scope="row">{{n.nombre}}</td>
+        <td (click)="onSelected(n)" scope="row">{{n.descripcion}}</td>
+        <td (click)="onSelected(n)">{{n.nombre}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  
+  <div class="detalle" id="detalle">
+    <div *ngIf="selected">
+      <app-nave-detail [nave]="selectedNave"></app-nave-detail>
+    </div>
+  </div>
+  </div>
